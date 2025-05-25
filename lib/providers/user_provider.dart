@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart'; // Comentado temporariamente
 import '../models/user_model.dart';
 
 class UserProvider extends ChangeNotifier {
@@ -24,7 +24,9 @@ class UserProvider extends ChangeNotifier {
     notifyListeners();
   }
   
-  bool get isLoggedIn => FirebaseAuth.instance.currentUser != null;
+  // bool get isLoggedIn => FirebaseAuth.instance.currentUser != null; // Comentado temporariamente - Requer Firebase Auth ativo
+  // TODO: Implementar lógica de login sem Firebase ou ativar Firebase
+  bool get isLoggedIn => _user != null; // Placeholder: considera logado se _user não for nulo
   
   bool get isAdmin => _user != null && (_user!.role == 'admin' || _user!.role == 'owner');
   
